@@ -1,10 +1,11 @@
-package com.fatima.terminal.motorista.service;
+package com.fatima.terminal.rota;
 
 import com.fatima.terminal.motorista.entity.Motorista;
-import com.fatima.terminal.motorista.repository.MotoristaDao;
+import com.fatima.terminal.motorista.service.MotoristaService;
+import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.rota.repository.RotaDao;
-import com.fatima.terminal.rota.to.RotaForm;
 import com.fatima.terminal.rota.service.RotaService;
+import com.fatima.terminal.rota.to.RotaForm;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +27,7 @@ public class RotaServiceTest {
     private RotaDao dao;
 
     @Mock
-    private MotoristaDao motoristaDao;
+    private MotoristaService motoristaService;
 
     private RotaForm form;
 
@@ -95,7 +96,7 @@ public class RotaServiceTest {
     }
 
     private void quandoBuscarMotoristaPeloEmail() {
-        when(motoristaDao.buscarMotorista(form.getEmail())).thenReturn(motorista);
+        when(motoristaService.buscarMotorista(form.getEmail())).thenReturn(MotoristaTO.builder(motorista));
     }
 
     private void quandoAdicionarNovaRota() {

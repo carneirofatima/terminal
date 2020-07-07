@@ -1,9 +1,8 @@
 package com.fatima.terminal.rota.service;
 
+import com.fatima.terminal.motorista.service.MotoristaService;
 import com.fatima.terminal.rota.entity.Rota;
-import com.fatima.terminal.motorista.repository.MotoristaDao;
 import com.fatima.terminal.rota.repository.RotaDao;
-import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.rota.to.RotaForm;
 import com.fatima.terminal.rota.to.RotaTO;
 
@@ -16,11 +15,11 @@ import java.util.stream.Collectors;
 public class RotaService {
 
     private final RotaDao dao;
-    private final MotoristaDao motoristaDao;
+    private final MotoristaService motoristaService;
 
-    public RotaService(RotaDao dao, MotoristaDao motoristaDao) {
+    public RotaService(RotaDao dao, MotoristaService motoristaService) {
         this.dao = dao;
-        this.motoristaDao = motoristaDao;
+        this.motoristaService = motoristaService;
     }
 
     public void adicionarRota(RotaForm form) {
@@ -48,16 +47,12 @@ public class RotaService {
     private RotaTO transformarRotaEmTO(RotaForm form) {
         RotaTO to = new RotaTO();
 
-        to.setMotorista(buscarMotorista(form.getEmail()));
+        to.setMotorista(motoristaService.buscarMotorista(form.getEmail()));
         to.setLatitudeDestino(form.getDestinoLatitude());
         to.setLongitudeDestino(form.getDestinoLongitude());
         to.setLatitudeOrigem(form.getOrigemLatitude());
         to.setLongitudeOrigem(form.getOrigemLongitude());
 
         return to;
-    }
-
-    private MotoristaTO buscarMotorista(String email) {
-        return MotoristaTO.builder(motoristaDao.buscarMotorista(email));
     }
 }

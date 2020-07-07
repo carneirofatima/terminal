@@ -34,11 +34,8 @@ public class MotoristaService {
         return MotoristaTO.builder(motorista);
     }
 
-    private List<MotoristaTO> retornarListaTO(List<Motorista> motoristas) {
-        return motoristas
-            .stream()
-            .map(MotoristaTO::builder)
-            .collect(Collectors.toList());
+    public MotoristaTO buscarMotorista(String email) {
+        return MotoristaTO.builder(dao.buscarMotorista(email));
     }
 
     public List<MotoristaTO> consutarMotoristaSemCarga() {
@@ -47,5 +44,12 @@ public class MotoristaService {
 
     public List<MotoristaTO> consultarMotoristaComVeiculoProprio() {
         return retornarListaTO(dao.consultarMotoristaComVeiculoProprio());
+    }
+
+    private List<MotoristaTO> retornarListaTO(List<Motorista> motoristas) {
+        return motoristas
+            .stream()
+            .map(MotoristaTO::builder)
+            .collect(Collectors.toList());
     }
 }

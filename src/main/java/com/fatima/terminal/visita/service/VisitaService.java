@@ -1,9 +1,9 @@
 package com.fatima.terminal.visita.service;
 
 import com.fatima.terminal.motorista.entity.Motorista;
-import com.fatima.terminal.motorista.repository.MotoristaDao;
-import com.fatima.terminal.visita.repository.VisitaDao;
+import com.fatima.terminal.motorista.service.MotoristaService;
 import com.fatima.terminal.motorista.to.MotoristaTO;
+import com.fatima.terminal.visita.repository.VisitaDao;
 import com.fatima.terminal.visita.to.VisitaTO;
 
 import org.springframework.stereotype.Service;
@@ -18,17 +18,17 @@ import java.util.stream.Collectors;
 public class VisitaService {
 
     private final VisitaDao dao;
-    private final MotoristaDao motoristaDao;
+    private final MotoristaService motoristaService;
 
-    public VisitaService(VisitaDao dao, MotoristaDao motoristaDao) {
+    public VisitaService(VisitaDao dao, MotoristaService motoristaService) {
         this.dao = dao;
-        this.motoristaDao = motoristaDao;
+        this.motoristaService = motoristaService;
     }
 
     public void adicionarVisita(String email) {
         VisitaTO formulario = new VisitaTO();
         LocalDate dataVisita = LocalDate.now();
-        formulario.setMotorista(buscarMotorista(email));
+        formulario.setMotorista(motoristaService.buscarMotorista(email));
         formulario.setData(dataVisita);
         dao.save(formulario.paraDominio());
     }
@@ -51,10 +51,6 @@ public class VisitaService {
             .stream()
             .map(MotoristaTO::builder)
             .collect(Collectors.toList());
-    }
-
-    private MotoristaTO buscarMotorista(String email) {
-        return MotoristaTO.builder(motoristaDao.buscarMotorista(email));
     }
 
 }

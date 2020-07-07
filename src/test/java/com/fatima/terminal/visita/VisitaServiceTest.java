@@ -1,7 +1,8 @@
-package com.fatima.terminal.motorista.service;
+package com.fatima.terminal.visita;
 
 import com.fatima.terminal.motorista.entity.Motorista;
-import com.fatima.terminal.motorista.repository.MotoristaDao;
+import com.fatima.terminal.motorista.service.MotoristaService;
+import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.visita.repository.VisitaDao;
 import com.fatima.terminal.visita.service.VisitaService;
 
@@ -29,7 +30,7 @@ public class VisitaServiceTest {
     private VisitaDao dao;
 
     @Mock
-    private MotoristaDao motoristaDao;
+    private MotoristaService motoristaService;
 
     private String email;
 
@@ -100,7 +101,7 @@ public class VisitaServiceTest {
     }
 
     private void quandoBuscarMotorista() {
-        when(motoristaDao.buscarMotorista(email)).thenReturn(motorista);
+        when(motoristaService.buscarMotorista(email)).thenReturn(MotoristaTO.builder(motorista));
     }
 
     private void dadoUmEmail() {
