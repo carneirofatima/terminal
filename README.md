@@ -55,7 +55,6 @@ _________
  -  Mockito;
  - Spring JPA;
  - Spring Boot;
- - Spring Annotation;
  
  ---
  
