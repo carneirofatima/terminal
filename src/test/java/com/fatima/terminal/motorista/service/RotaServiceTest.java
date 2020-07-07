@@ -2,8 +2,9 @@ package com.fatima.terminal.motorista.service;
 
 import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
-import com.fatima.terminal.motorista.repository.RotaDao;
-import com.fatima.terminal.motorista.to.rota.RotaForm;
+import com.fatima.terminal.rota.repository.RotaDao;
+import com.fatima.terminal.rota.to.RotaForm;
+import com.fatima.terminal.rota.service.RotaService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

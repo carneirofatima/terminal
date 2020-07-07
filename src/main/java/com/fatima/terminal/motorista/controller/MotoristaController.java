@@ -2,7 +2,7 @@ package com.fatima.terminal.motorista.controller;
 
 import com.fatima.terminal.motorista.service.MotoristaService;
 import com.fatima.terminal.motorista.to.MotoristaTO;
-import com.fatima.terminal.motorista.validator.ValidadorException;
+import com.fatima.terminal.validator.ValidadorException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

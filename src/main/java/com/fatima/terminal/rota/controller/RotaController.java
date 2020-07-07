@@ -1,7 +1,7 @@
-package com.fatima.terminal.motorista.controller;
+package com.fatima.terminal.rota.controller;
 
-import com.fatima.terminal.motorista.service.RotaService;
-import com.fatima.terminal.motorista.to.rota.RotaForm;
+import com.fatima.terminal.rota.service.RotaService;
+import com.fatima.terminal.rota.to.RotaForm;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

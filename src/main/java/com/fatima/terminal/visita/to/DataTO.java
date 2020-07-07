@@ -1,4 +1,4 @@
-package com.fatima.terminal.motorista.to;
+package com.fatima.terminal.visita.to;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

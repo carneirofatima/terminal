@@ -1,4 +1,4 @@
-package com.fatima.terminal.motorista.validator;
+package com.fatima.terminal.validator;
 
 import lombok.Getter;
 

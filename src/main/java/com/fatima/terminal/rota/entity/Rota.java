@@ -1,4 +1,6 @@
-package com.fatima.terminal.motorista.entity;
+package com.fatima.terminal.rota.entity;
+
+import com.fatima.terminal.motorista.entity.Motorista;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

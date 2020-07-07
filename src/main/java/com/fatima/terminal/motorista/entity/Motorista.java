@@ -1,5 +1,8 @@
 package com.fatima.terminal.motorista.entity;
 
+import com.fatima.terminal.rota.entity.Rota;
+import com.fatima.terminal.visita.entity.Visita;
+
 import java.util.List;
 
 import javax.persistence.Entity;

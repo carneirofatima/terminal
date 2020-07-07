@@ -1,10 +1,10 @@
-package com.fatima.terminal.motorista.service;
+package com.fatima.terminal.visita.service;
 
 import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
-import com.fatima.terminal.motorista.repository.VisitaDao;
+import com.fatima.terminal.visita.repository.VisitaDao;
 import com.fatima.terminal.motorista.to.MotoristaTO;
-import com.fatima.terminal.motorista.to.VisitaTO;
+import com.fatima.terminal.visita.to.VisitaTO;
 
 import org.springframework.stereotype.Service;
 

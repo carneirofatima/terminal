@@ -1,11 +1,11 @@
-package com.fatima.terminal.motorista.service;
+package com.fatima.terminal.rota.service;
 
-import com.fatima.terminal.motorista.entity.Rota;
+import com.fatima.terminal.rota.entity.Rota;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
-import com.fatima.terminal.motorista.repository.RotaDao;
+import com.fatima.terminal.rota.repository.RotaDao;
 import com.fatima.terminal.motorista.to.MotoristaTO;
-import com.fatima.terminal.motorista.to.rota.RotaForm;
-import com.fatima.terminal.motorista.to.rota.RotaTO;
+import com.fatima.terminal.rota.to.RotaForm;
+import com.fatima.terminal.rota.to.RotaTO;
 
 import org.springframework.stereotype.Service;
 

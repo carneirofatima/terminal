@@ -1,4 +1,4 @@
-package com.fatima.terminal.motorista.to.rota;
+package com.fatima.terminal.rota.to;
 
 import lombok.Getter;
 import lombok.Setter;

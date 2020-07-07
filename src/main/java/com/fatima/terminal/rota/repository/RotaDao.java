@@ -1,6 +1,6 @@
-package com.fatima.terminal.motorista.repository;
+package com.fatima.terminal.rota.repository;
 
-import com.fatima.terminal.motorista.entity.Rota;
+import com.fatima.terminal.rota.entity.Rota;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

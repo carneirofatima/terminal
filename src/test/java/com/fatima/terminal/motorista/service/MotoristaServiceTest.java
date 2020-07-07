@@ -4,6 +4,7 @@ import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
 import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.motorista.validator.Validador;
+import com.fatima.terminal.visita.service.VisitaService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,7 @@
-package com.fatima.terminal.motorista.repository;
+package com.fatima.terminal.visita.repository;
 
 import com.fatima.terminal.motorista.entity.Motorista;
-import com.fatima.terminal.motorista.entity.Visita;
+import com.fatima.terminal.visita.entity.Visita;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

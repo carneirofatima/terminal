@@ -1,6 +1,6 @@
-package com.fatima.terminal.motorista.controller;
+package com.fatima.terminal.visita.controller;
 
-import com.fatima.terminal.motorista.service.VisitaService;
+import com.fatima.terminal.visita.service.VisitaService;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;

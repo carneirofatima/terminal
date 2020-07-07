@@ -3,6 +3,7 @@ package com.fatima.terminal.motorista.validator;
 import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
 import com.fatima.terminal.motorista.to.MotoristaTO;
+import com.fatima.terminal.validator.ValidadorException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
-package com.fatima.terminal.motorista.to.rota;
+package com.fatima.terminal.rota.to;
 
-import com.fatima.terminal.motorista.entity.Rota;
+import com.fatima.terminal.rota.entity.Rota;
 import com.fatima.terminal.motorista.to.MotoristaTO;
 
 import lombok.Getter;

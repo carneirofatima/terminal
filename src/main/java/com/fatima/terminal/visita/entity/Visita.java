@@ -1,4 +1,6 @@
-package com.fatima.terminal.motorista.entity;
+package com.fatima.terminal.visita.entity;
+
+import com.fatima.terminal.motorista.entity.Motorista;
 
 import java.util.Date;
 

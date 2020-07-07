@@ -1,6 +1,7 @@
-package com.fatima.terminal.motorista.to;
+package com.fatima.terminal.visita.to;
 
-import com.fatima.terminal.motorista.entity.Visita;
+import com.fatima.terminal.motorista.to.MotoristaTO;
+import com.fatima.terminal.visita.entity.Visita;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
