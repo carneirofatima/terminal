@@ -15,6 +15,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.ArrayList;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.matches;
+import static org.mockito.Mockito.mockingDetails;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -34,6 +36,10 @@ public class MotoristaServiceTest {
     private VisitaService visitaService;
 
     private MotoristaTO to;
+
+    private String email;
+
+    private Motorista motorista;
 
     @Test
     public void cadastrarNovoMotorista() {
@@ -59,6 +65,32 @@ public class MotoristaServiceTest {
     public void deveConsultarMotoristasComVeiculoProprio() {
         quandoConsultarMotoristasComVeiculoProprio();
         deveConsultarMotoristasComVeiculoProprioNoBancoDeDados();
+    }
+
+    @Test
+    public void deveBuscarMotorista() {
+        dadoUmEmail();
+        dadoUmMotorista();
+        quandoBuscarMotorista();
+        deveTerBuscadoMotorista();
+    }
+
+    private void dadoUmMotorista() {
+        motorista = new Motorista();
+        motorista.setEmail(email);
+    }
+
+    private void deveTerBuscadoMotorista() {
+        verify(dao).buscarMotorista(email);
+    }
+
+    private void quandoBuscarMotorista() {
+        when(dao.buscarMotorista(email)).thenReturn(motorista);
+        service.buscarMotorista(email);
+    }
+
+    private void dadoUmEmail() {
+        email = "teste@teste.com.br";
     }
 
     private void deveConsultarMotoristasComVeiculoProprioNoBancoDeDados() {
