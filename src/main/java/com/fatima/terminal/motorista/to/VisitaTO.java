@@ -1,6 +1,5 @@
 package com.fatima.terminal.motorista.to;
 
-import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.entity.Visita;
 
 import java.time.LocalDate;

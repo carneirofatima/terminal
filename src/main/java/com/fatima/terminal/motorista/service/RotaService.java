@@ -29,13 +29,13 @@ public class RotaService {
     }
 
     public List<RotaTO> buscarDestinos(String latitude, String longitude) {
-        List<Rota> rotas =  dao.consultarDestino(latitude, longitude);
+        List<Rota> rotas = dao.consultarDestino(latitude, longitude);
         return retornarListaTO(rotas);
     }
 
     public List<RotaTO> buscarOrigem(String latitude, String longitude) {
         List<Rota> rotas = dao.consultarOrigem(latitude, longitude);
-        return  retornarListaTO(rotas);
+        return retornarListaTO(rotas);
     }
 
     private List<RotaTO> retornarListaTO(List<Rota> rotas) {

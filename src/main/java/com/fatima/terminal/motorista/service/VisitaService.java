@@ -25,7 +25,6 @@ public class VisitaService {
         this.motoristaDao = motoristaDao;
     }
 
-
     public void adicionarVisita(String email) {
         VisitaTO formulario = new VisitaTO();
         LocalDate dataVisita = LocalDate.now();
@@ -41,10 +40,10 @@ public class VisitaService {
         return retornarListaTO(dao.consultarMotoristasQuePassaramPeloTerminal(dataInicio, dataFim));
     }
 
-    private Date converterLocalDateEmDate(LocalDate data){
+    private Date converterLocalDateEmDate(LocalDate data) {
         return Date.from(data.atStartOfDay()
-                                       .atZone(ZoneId.systemDefault())
-                                       .toInstant());
+                             .atZone(ZoneId.systemDefault())
+                             .toInstant());
     }
 
     private List<MotoristaTO> retornarListaTO(List<Motorista> motoristas) {

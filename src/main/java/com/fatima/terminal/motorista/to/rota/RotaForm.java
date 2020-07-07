@@ -3,7 +3,8 @@ package com.fatima.terminal.motorista.to.rota;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class RotaForm {
 
     private String email;

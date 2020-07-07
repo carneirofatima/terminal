@@ -59,7 +59,7 @@ public class RotaController {
 
     @GetMapping(value = "/origem")
     public ResponseEntity<?> consultarOrigem(@RequestBody String latitude,
-                                               @RequestBody String longitude) {
+                                             @RequestBody String longitude) {
         try {
             return new ResponseEntity<>(
                 service.buscarOrigem(latitude, longitude),
