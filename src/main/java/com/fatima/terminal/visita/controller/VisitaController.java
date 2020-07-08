@@ -47,9 +47,9 @@ public class VisitaController {
 
     @GetMapping
     public ResponseEntity<?> consultarMotoristasPassaramTerminal(@RequestParam("data-inicial")
-                                                                 @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataInicial,
+                                                                 @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataInicial,
                                                                  @RequestParam("data-final")
-                                                                 @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataFinal) {
+                                                                 @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dataFinal) {
         try {
             return new ResponseEntity<>(
                 service.consultarMotoristasQuePassaramPeloTerminal(dataInicial, dataFinal),

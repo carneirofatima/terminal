@@ -2,6 +2,7 @@ package com.fatima.terminal.motorista.validator;
 
 import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
+import com.fatima.terminal.motorista.service.Validador;
 import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.validator.ValidadorException;
 

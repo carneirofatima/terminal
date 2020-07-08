@@ -3,7 +3,6 @@ package com.fatima.terminal.motorista.service;
 import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
 import com.fatima.terminal.motorista.to.MotoristaTO;
-import com.fatima.terminal.motorista.validator.Validador;
 
 import org.springframework.stereotype.Service;
 

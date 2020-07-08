@@ -2,7 +2,7 @@ package com.fatima.terminal.visita.to;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
@@ -14,10 +14,10 @@ import lombok.Setter;
 public class DataTO {
 
     @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDateTime dataInicial;
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    private LocalDate dataInicial;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDateTime dataFinal;
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    private LocalDate dataFinal;
 
 }
