@@ -11,31 +11,24 @@ import lombok.Setter;
 @Setter
 public class MotoristaTO {
 
-    @NotNull
+    private Integer motoristaKey;
+
     private String nome;
 
-    @NotNull
     private Integer idade;
 
-    @NotNull
     private String genero;
 
-    @NotNull
     private Boolean possuiVeiculo;
 
-    @NotNull
     private Integer tipoCNH;
 
-    @NotNull
     private Boolean estaCarregado;
 
-    @NotNull
     private Integer tipoVeiculo;
 
-    @NotNull
     private String email;
 
-    @NotNull
     private String numeroTelefone;
 
     public Motorista paraDominio() {

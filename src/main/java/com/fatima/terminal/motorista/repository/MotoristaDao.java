@@ -24,5 +24,8 @@ public interface MotoristaDao extends JpaRepository<Motorista, String> {
     List<Motorista> consultarMotoristaComVeiculoProprio();
 
     @Query(value = "SELECT m FROM Motorista m WHERE m.email = :email")
-    Motorista buscarMotorista(String email);
+    Motorista buscarMotoristaPorEmail(String email);
+
+    @Query(value = "SELECT m FROM Motorista m WHERE m.motoristaKey = :id")
+    Motorista buscarMotoristaPorId(Integer id);
 }

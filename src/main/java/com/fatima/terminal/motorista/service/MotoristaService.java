@@ -4,38 +4,32 @@ import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
 import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.motorista.validator.Validador;
-import com.fatima.terminal.visita.service.VisitaService;
 
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.transaction.Transactional;
-
 @Service
 public class MotoristaService {
 
     private final MotoristaDao dao;
     private final Validador validador;
-    private final VisitaService visitaService;
 
-    public MotoristaService(MotoristaDao dao, Validador validador, VisitaService visitaService) {
+    public MotoristaService(MotoristaDao dao, Validador validador) {
         this.dao = dao;
         this.validador = validador;
-        this.visitaService = visitaService;
     }
 
-    @Transactional
+
     public MotoristaTO cadastrar(MotoristaTO formulario) {
         validador.validarFormulario(formulario);
         Motorista motorista = dao.save(formulario.paraDominio());
-        visitaService.adicionarVisita(formulario.getEmail());
         return MotoristaTO.builder(motorista);
     }
 
     public MotoristaTO buscarMotorista(String email) {
-        return MotoristaTO.builder(dao.buscarMotorista(email));
+        return MotoristaTO.builder(dao.buscarMotoristaPorEmail(email));
     }
 
     public List<MotoristaTO> consutarMotoristaSemCarga() {
@@ -44,6 +38,14 @@ public class MotoristaService {
 
     public List<MotoristaTO> consultarMotoristaComVeiculoProprio() {
         return retornarListaTO(dao.consultarMotoristaComVeiculoProprio());
+    }
+
+    public MotoristaTO editar(MotoristaTO formulario) {
+        validador.motoristaPodeSerEditado(formulario.getMotoristaKey());
+        Motorista motorista = dao.buscarMotoristaPorId(formulario.getMotoristaKey());
+        validador.validarFormulario(formulario);
+        dao.save(formulario.paraDominio());
+        return MotoristaTO.builder(motorista);
     }
 
     private List<MotoristaTO> retornarListaTO(List<Motorista> motoristas) {

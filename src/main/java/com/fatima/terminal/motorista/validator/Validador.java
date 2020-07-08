@@ -19,6 +19,12 @@ public class Validador {
         this.dao = dao;
     }
 
+    public void motoristaPodeSerEditado(Integer motoristaKey) {
+        if(motoristaKey == null || dao.buscarMotoristaPorId(motoristaKey) == null) {
+            throw new ValidadorException("Não é possível cadastrar um motorista que ainda não foi salvo no sistema");
+        }
+    }
+
     public void validarFormulario(MotoristaTO formulario) {
         validarEmail(formulario.getEmail());
         validarTelefone(formulario.getNumeroTelefone());

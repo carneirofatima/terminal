@@ -6,6 +6,7 @@ import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.visita.repository.VisitaDao;
 import com.fatima.terminal.visita.to.VisitaTO;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

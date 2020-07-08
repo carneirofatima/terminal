@@ -14,9 +14,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.matches;
-import static org.mockito.Mockito.mockingDetails;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -75,17 +74,51 @@ public class MotoristaServiceTest {
         deveTerBuscadoMotorista();
     }
 
+    @Test
+    public void editarMotorista() {
+        dadoUmEmail();
+        dadoUmMotorista();
+        dadoUmFormularioDeEdicao();
+        quandoEditarMotorista();
+        deveTerEditadoCadastroDeMotorista();
+    }
+
+    private void deveTerEditadoCadastroDeMotorista() {
+        assertEquals("edicao@teste.com.br", motorista.getEmail());
+    }
+
+    private void quandoEditarMotorista() {
+        motorista = to.paraDominio();
+        when(dao.buscarMotoristaPorId(to.getMotoristaKey())).thenReturn(motorista);
+        service.editar(to);
+    }
+
+    private void dadoUmFormularioDeEdicao() {
+        to = new MotoristaTO();
+        to.setEmail("edicao@teste.com.br");
+        to.setMotoristaKey(1);
+        to.setEstaCarregado(true);
+        to.setGenero("Feminino");
+        to.setNome("Teste da Silva");
+        to.setNumeroTelefone("(11) 91234-5678");
+        to.setTipoVeiculo(1);
+        to.setIdade(40);
+        to.setPossuiVeiculo(true);
+        to.setTipoCNH(1);
+    }
+
     private void dadoUmMotorista() {
         motorista = new Motorista();
         motorista.setEmail(email);
+        motorista.setMotoristaKey(1);
     }
 
     private void deveTerBuscadoMotorista() {
-        verify(dao).buscarMotorista(email);
+        verify(dao).buscarMotoristaPorEmail(email);
     }
 
     private void quandoBuscarMotorista() {
-        when(dao.buscarMotorista(email)).thenReturn(motorista);
+        when(dao.buscarMotoristaPorEmail(email)).thenReturn(motorista);
         service.buscarMotorista(email);
     }
 
