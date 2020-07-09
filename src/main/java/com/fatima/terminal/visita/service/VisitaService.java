@@ -4,7 +4,6 @@ import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.service.MotoristaService;
 import com.fatima.terminal.motorista.to.MotoristaTO;
 import com.fatima.terminal.visita.repository.VisitaDao;
-import com.fatima.terminal.visita.to.DataTO;
 import com.fatima.terminal.visita.to.VisitaTO;
 
 import org.springframework.stereotype.Service;
@@ -40,7 +39,7 @@ public class VisitaService {
 
     public List<MotoristaTO> consultarMotoristasQuePassaramPeloTerminal(LocalDate dataInicial, LocalDate dataFinal) throws ValidationException {
         if(dataFinal != null) {
-            validador.dataInicialMenorQueDataFinal(dataInicial, dataFinal);
+            validador.dataInicialMaiorQueDataFinal(dataInicial, dataFinal);
         }
 
         Date dataInicio = converterLocalDateEmDate(dataInicial);
