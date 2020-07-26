@@ -1,7 +1,5 @@
 package com.fatima.terminal.motorista.controller;
 
-import com.fatima.terminal.validator.ErroInternoException;
-import com.fatima.terminal.validator.MotoristaInexistenteException;
 import com.fatima.terminal.validator.MotoristaJaCadastradoException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -25,17 +23,5 @@ public class MotoristaException {
     @ExceptionHandler(MotoristaJaCadastradoException.class)
     public void motoristaJaCadastrado(MotoristaJaCadastradoException e) {
         log.error("Esse motorista já está cadastrado no sitema.", e);
-    }
-
-    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Motorista inexistente")
-    @ExceptionHandler(MotoristaInexistenteException.class)
-    public void motoristaNaoCadastrado(MotoristaInexistenteException e) {
-        log.error("Este motorista não consta no sistema.", e);
-    }
-
-    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Erro inesperado")
-    @ExceptionHandler(ErroInternoException.class)
-    public void erroInesperado(ErroInternoException e) {
-        log.error("Ocorreu um erro inesperado.", e);
     }
 }
