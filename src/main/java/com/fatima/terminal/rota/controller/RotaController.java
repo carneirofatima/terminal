@@ -2,7 +2,6 @@ package com.fatima.terminal.rota.controller;
 
 import com.fatima.terminal.rota.service.RotaService;
 import com.fatima.terminal.rota.to.RotaForm;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -31,12 +30,12 @@ public class RotaController {
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (ConstraintViolationException e) {
             return new ResponseEntity<>(
-                e, HttpStatus.BAD_REQUEST
+                    e, HttpStatus.BAD_REQUEST
             );
         } catch (Exception e) {
             return new ResponseEntity<>(
-                "Ocorreu um erro inesperado",
-                HttpStatus.INTERNAL_SERVER_ERROR
+                    "Ocorreu um erro inesperado",
+                    HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
     }
@@ -46,13 +45,13 @@ public class RotaController {
                                                @RequestBody String longitude) {
         try {
             return new ResponseEntity<>(
-                service.buscarDestinos(latitude, longitude),
-                HttpStatus.OK
+                    service.buscarDestinos(latitude, longitude),
+                    HttpStatus.OK
             );
         } catch (Exception e) {
             return new ResponseEntity<>(
-                "Ocorreu um erro inesperado",
-                HttpStatus.INTERNAL_SERVER_ERROR
+                    "Ocorreu um erro inesperado",
+                    HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
     }
@@ -62,13 +61,13 @@ public class RotaController {
                                              @RequestBody String longitude) {
         try {
             return new ResponseEntity<>(
-                service.buscarOrigem(latitude, longitude),
-                HttpStatus.OK
+                    service.buscarOrigem(latitude, longitude),
+                    HttpStatus.OK
             );
         } catch (Exception e) {
             return new ResponseEntity<>(
-                "Ocorreu um erro inesperado",
-                HttpStatus.INTERNAL_SERVER_ERROR
+                    "Ocorreu um erro inesperado",
+                    HttpStatus.INTERNAL_SERVER_ERROR
             );
         }
     }

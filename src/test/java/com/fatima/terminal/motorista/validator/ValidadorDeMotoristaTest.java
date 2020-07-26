@@ -2,10 +2,9 @@ package com.fatima.terminal.motorista.validator;
 
 import com.fatima.terminal.motorista.entity.Motorista;
 import com.fatima.terminal.motorista.repository.MotoristaDao;
-import com.fatima.terminal.motorista.service.Validador;
+import com.fatima.terminal.motorista.service.ValidadorDeMotorista;
 import com.fatima.terminal.motorista.to.MotoristaTO;
-import com.fatima.terminal.validator.ValidadorException;
-
+import com.fatima.terminal.validator.MotoristaJaCadastradoException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -20,10 +19,10 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ValidadorTest {
+public class ValidadorDeMotoristaTest {
 
     @InjectMocks
-    private Validador validador;
+    private ValidadorDeMotorista validadorDeMotorista;
 
     @Mock
     private MotoristaDao dao;
@@ -45,7 +44,7 @@ public class ValidadorTest {
         deveTerChamadoDao();
     }
 
-    @Test(expected = ValidadorException.class)
+    @Test(expected = MotoristaJaCadastradoException.class)
     public void validarFormularioComTelefoneJaCadastrado() {
         dadoUmTO();
         dadoListasComMotoristasJaCadastrados();
@@ -53,7 +52,7 @@ public class ValidadorTest {
         quandoValidarTO();
     }
 
-    @Test(expected = ValidadorException.class)
+    @Test(expected = MotoristaJaCadastradoException.class)
     public void validarFormularioComEmailJaCadastrado() {
         dadoUmTO();
         dadoListasComMotoristasJaCadastrados();
@@ -92,7 +91,7 @@ public class ValidadorTest {
     }
 
     private void quandoValidarTO() {
-        validador.validarFormulario(to);
+        validadorDeMotorista.validarFormulario(to);
     }
 
     private void dadoUmTO() {

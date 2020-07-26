@@ -2,16 +2,12 @@ package com.fatima.terminal.motorista.controller;
 
 import com.fatima.terminal.motorista.service.MotoristaService;
 import com.fatima.terminal.motorista.to.MotoristaTO;
-import com.fatima.terminal.validator.ValidadorException;
-
+import com.fatima.terminal.validator.ErroInternoException;
+import com.fatima.terminal.validator.MotoristaInexistenteException;
+import com.fatima.terminal.validator.MotoristaJaCadastradoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
@@ -27,73 +23,30 @@ public class MotoristaController {
     }
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@Valid @RequestBody MotoristaTO formulario) {
-        try {
-            return new ResponseEntity<>(
-                service.cadastrar(formulario),
-                HttpStatus.CREATED
-            );
-        } catch (ConstraintViolationException | ValidadorException e) {
-            return new ResponseEntity<>(
-                e,
-                HttpStatus.BAD_REQUEST
-            );
-        } catch (Exception e) {
-            return new ResponseEntity<>(
-                "Ocorreu um erro inesperado",
-                HttpStatus.INTERNAL_SERVER_ERROR
-            );
-        }
+    public ResponseEntity<?> cadastrar(@Valid @RequestBody MotoristaTO formulario) throws
+            ConstraintViolationException,
+            MotoristaJaCadastradoException,
+            ErroInternoException {
+        return new ResponseEntity<>(service.cadastrar(formulario), HttpStatus.CREATED);
+
     }
 
     @PutMapping
-    public ResponseEntity<?> editar(@Valid @RequestBody MotoristaTO formulario) {
-        try {
-            return new ResponseEntity<>(
-                service.editar(formulario),
-                HttpStatus.CREATED
-            );
-        } catch (ConstraintViolationException | ValidadorException e) {
-            return new ResponseEntity<>(
-                e,
-                HttpStatus.BAD_REQUEST
-            );
-        } catch (Exception e) {
-            return new ResponseEntity<>(
-                "Ocorreu um erro inesperado",
-                HttpStatus.INTERNAL_SERVER_ERROR
-            );
-        }
+    public ResponseEntity<?> editar(@Valid @RequestBody MotoristaTO formulario) throws
+            ConstraintViolationException,
+            MotoristaInexistenteException,
+            ErroInternoException {
+        return new ResponseEntity<>(service.editar(formulario), HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/sem-carga")
-    public ResponseEntity<?> consultarMotoristaSemCarga() {
-        try {
-            return new ResponseEntity<>(
-                service.consutarMotoristaSemCarga(),
-                HttpStatus.OK
-            );
-        } catch (Exception e) {
-            return new ResponseEntity<>(
-                "Ocorreu um erro inesperado",
-                HttpStatus.INTERNAL_SERVER_ERROR
-            );
-        }
+    public ResponseEntity<?> consultarMotoristaSemCarga() throws ErroInternoException {
+        return new ResponseEntity<>(service.consutarMotoristaSemCarga(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/com-veiculo-proprio")
-    public ResponseEntity<?> consultarMotoristaComVeiculoProprio() {
-        try {
-            return new ResponseEntity<>(
-                service.consultarMotoristaComVeiculoProprio(),
-                HttpStatus.OK
-            );
-        } catch (Exception e) {
-            return new ResponseEntity<>(
-                "Ocorreu um erro inesperado",
-                HttpStatus.INTERNAL_SERVER_ERROR
-            );
-        }
+    public ResponseEntity<?> consultarMotoristaComVeiculoProprio() throws ErroInternoException {
+        return new ResponseEntity<>(service.consultarMotoristaComVeiculoProprio(), HttpStatus.OK);
     }
 
 }

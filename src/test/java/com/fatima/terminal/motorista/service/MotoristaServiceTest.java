@@ -28,7 +28,7 @@ public class MotoristaServiceTest {
     private MotoristaDao dao;
 
     @Mock
-    private Validador validador;
+    private ValidadorDeMotorista validadorDeMotorista;
 
     @Mock
     private VisitaService visitaService;

@@ -1,13 +1,11 @@
 package com.fatima.terminal.motorista.to;
 
 import com.fatima.terminal.motorista.entity.Motorista;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Setter
@@ -23,12 +21,14 @@ public class MotoristaTO {
 
     private Boolean possuiVeiculo;
 
-    @Min(value = 1) @Max(value = 5)
+    @Min(value = 1)
+    @Max(value = 5)
     private Integer tipoCNH;
 
     private Boolean estaCarregado;
 
-    @Min(value = 1) @Max(value = 5)
+    @Min(value = 1)
+    @Max(value = 5)
     private Integer tipoVeiculo;
 
     private String email;

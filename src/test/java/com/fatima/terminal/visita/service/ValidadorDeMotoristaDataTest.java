@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import javax.xml.bind.ValidationException;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ValidadorDataTest extends TestCase {
+public class ValidadorDeMotoristaDataTest extends TestCase {
 
     @InjectMocks
     private ValidadorData service;

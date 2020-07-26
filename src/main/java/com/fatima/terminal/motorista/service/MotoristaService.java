@@ -13,16 +13,16 @@ import java.util.stream.Collectors;
 public class MotoristaService {
 
     private final MotoristaDao dao;
-    private final Validador validador;
+    private final ValidadorDeMotorista validadorDeMotorista;
 
-    public MotoristaService(MotoristaDao dao, Validador validador) {
+    public MotoristaService(MotoristaDao dao, ValidadorDeMotorista validadorDeMotorista) {
         this.dao = dao;
-        this.validador = validador;
+        this.validadorDeMotorista = validadorDeMotorista;
     }
 
 
     public MotoristaTO cadastrar(MotoristaTO formulario) {
-        validador.validarFormulario(formulario);
+        validadorDeMotorista.validarFormulario(formulario);
         Motorista motorista = dao.save(formulario.paraDominio());
         return MotoristaTO.builder(motorista);
     }
@@ -40,9 +40,9 @@ public class MotoristaService {
     }
 
     public MotoristaTO editar(MotoristaTO formulario) {
-        validador.motoristaPodeSerEditado(formulario.getMotoristaKey());
+        validadorDeMotorista.motoristaPodeSerEditado(formulario.getMotoristaKey());
         Motorista motorista = dao.buscarMotoristaPorId(formulario.getMotoristaKey());
-        validador.validarFormulario(formulario);
+        validadorDeMotorista.validarFormulario(formulario);
         dao.save(formulario.paraDominio());
         return MotoristaTO.builder(motorista);
     }
